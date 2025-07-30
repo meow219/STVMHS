@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-
-// ImageKit CDN logo
-const emblem = "https://ik.imagekit.io/zmcjodd1h/School%20website/Emblem/emblem.png?updatedAt=1751460868013?tr=w-60,q-80,f-webp";
+import emblem from "../assets/logo org/emblem.png";
 
 const Navbar = () => {
   const location = useLocation();
@@ -15,17 +13,12 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   const handleNavClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     setMenuOpen(false);
   };
-
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Violetblock", path: "/VioletBlock" },
-    { name: "Blog", path: "/Blog" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Contact Us", path: "/contact" },
-  ];
 
   return (
     <nav className="absolute top-0 left-0 w-full z-50 bg-transparent">
@@ -41,7 +34,7 @@ const Navbar = () => {
             <img
               src={emblem}
               className="h-8 sm:h-10 w-auto object-contain"
-              alt="STVMHS School Emblem"
+              alt="School Logo"
             />
             <span className="text-sm sm:text-base md:text-lg font-serif text-white truncate">
               St.Thomas Vidyalayam Matriculation Higher Secondary School
@@ -77,7 +70,13 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden lg:block">
             <ul className="font-serif flex space-x-6 xl:space-x-8">
-              {navItems.map((item) => (
+              {[
+                { name: "Home", path: "/" },
+                { name: "Violetblock", path: "/VioletBlock" },
+                { name: "Blog", path: "/Blog" },
+                { name: "Gallery", path: "/gallery" },
+                { name: "Contact Us", path: "/contact" },
+              ].map((item) => (
                 <li className="relative group" key={item.path}>
                   <Link
                     to={item.path}
@@ -101,14 +100,20 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Appears below navbar */}
         <div
           className={`lg:hidden bg-black transition-all duration-300 overflow-hidden ${
             menuOpen ? "max-h-96 py-2" : "max-h-0 py-0"
           }`}
         >
           <ul className="font-serif flex flex-col px-4 sm:px-6 space-y-2">
-            {navItems.map((item) => (
+            {[
+              { name: "Home", path: "/" },
+              { name: "Violetblock", path: "/VioletBlock" },
+              { name: "Blog", path: "/Blog" },
+              { name: "Gallery", path: "/gallery" },
+              { name: "Contact Us", path: "/contact" },
+            ].map((item) => (
               <li className="relative group" key={item.path}>
                 <Link
                   to={item.path}

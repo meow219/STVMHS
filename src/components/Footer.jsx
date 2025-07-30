@@ -9,21 +9,19 @@ import {
   FaFacebookF,
   FaWhatsapp,
 } from "react-icons/fa";
-
-// ImageKit Emblem URL
-const emblem = "https://ik.imagekit.io/zmcjodd1h/School%20website/logo%20org/emblem.png?updatedAt=1751313603790?tr=w-120,q-80,f-webp";
+import emblem from "../assets/logo org/emblem.png";
 
 const Footer = () => {
   return (
     <footer className="bg-black text-[#F5F5DC] py-10 px-4 sm:px-8 md:px-12 lg:px-20 font-sans">
       <div className="max-w-7xl mx-auto">
+        {/* Main Content */}
         <div className="flex flex-col lg:flex-row flex-wrap items-center lg:items-start justify-between gap-8">
           {/* Logo */}
           <div className="w-full sm:w-auto flex-shrink-0 flex flex-col items-center lg:items-start">
             <img
               src={emblem}
               alt="STVMHS Emblem"
-              loading="lazy"
               className="w-20 sm:w-24 md:w-28 lg:w-32 object-contain"
               onError={(e) => (e.target.style.display = "none")}
             />
@@ -138,8 +136,7 @@ const Footer = () => {
 
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.6514183840427!2d80.15025687578257!3d13.05784618726547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52617261b0aa17%3A0xef80f22da9e567a3!2sSt%20Thomas%20Vidyalaya!5e0!3m2!1sen!2sin!4v1745074970522!5m2!1sen!2sin"
-              title="St. Thomas Vidyalayam Location on Google Maps"
-              aria-label="Map to St. Thomas Vidyalayam"
+              title="St. Thomas Vidyalaya Location on Google Maps"
               className="w-full xs:w-64 h-40 border border-[#F5F5DC] opacity-80 hover:opacity-100 transition-opacity"
               loading="lazy"
               allowFullScreen
@@ -147,7 +144,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Footer Bottom */}
+        {/* Copyright */}
         <div className="mt-8 pt-4 border-t border-[#F5F5DC] border-opacity-30">
           <p className="text-xs sm:text-sm text-center text-[#F5F5DC] opacity-70">
             © {new Date().getFullYear()} St. Thomas Vidyalayam | All rights reserved

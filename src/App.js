@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import ChatBox from "./components/chatbox/ChatBox";
 import Loader from "./components/Loader";
+import ShashaImg from "./assets/Chatbot/Shasha.jpg";
 import AdmissionModal from "./components/AdmissionModal";
 
 // Pages
@@ -19,10 +20,6 @@ import Gallery from "./pages/Gallery";
 import VioletBlock from "./pages/VioletBlock";
 import Contact from "./pages/Contact";
 
-// ImageKit avatar for chatbot
-const ShashaImg = "https://ik.imagekit.io/zmcjodd1h/School%20website/Chatbot/Shasha.jpg?updatedAt=1751313081199?tr=w-120,q-80,f-webp";
-
-// ScrollToTop on Route Change
 const ScrollToTopOnRouteChange = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -60,10 +57,12 @@ function App() {
 
   if (loading) return <Loader />;
 
+  const butterscotch = "#ebebd3";
+
   return (
     <Router>
       <ScrollToTopOnRouteChange />
-      <div className="flex flex-col min-h-screen bg-[#ebebd3]">
+      <div className="flex flex-col min-h-screen" style={{ backgroundColor: butterscotch }}>
         <Navbar />
 
         <main className="flex-grow">
@@ -79,10 +78,8 @@ function App() {
         <Footer />
         <ScrollToTop />
 
-        {/* Admission Modal */}
         <AdmissionModal isVisible={showAdmissionModal} onClose={handleCloseAdmissionModal} />
 
-        {/* Chatbot Trigger */}
         {!showAdmissionModal && (
           <div className="fixed bottom-6 right-6 z-50 flex items-end gap-2">
             {(showPopup || (hovered && !isChatbotOpen)) && (
@@ -101,20 +98,16 @@ function App() {
                 setShowPopup(false);
               }}
               className="rounded-full w-14 h-14 bg-white shadow-lg hover:scale-105 transition-transform overflow-hidden"
-              aria-label="Open School Assistant"
             >
               <img
                 src={ShashaImg}
-                alt="Shasha - School Assistant"
+                alt="Shasha"
                 className="w-full h-full object-cover transform scale-110"
-                loading="lazy"
-                onError={(e) => (e.target.style.display = "none")}
               />
             </button>
           </div>
         )}
 
-        {/* ChatBox Component */}
         <ChatBox isActive={isChatbotOpen} toggle={() => setIsChatbotOpen(false)} />
       </div>
     </Router>

@@ -1,28 +1,24 @@
 import React from "react";
-
-// ✅ Replace this with your ImageKit URL
-const videoURL = "https://ik.imagekit.io/zmcjodd1h/School%20website/vdo/violet.mp4?updatedAt=1751313896476";
+import heroVideo from "../../assets/vdo/violet.mp4"; // Updated path
 
 const HeroSection = () => {
   return (
     <section id="home" className="relative w-full h-screen overflow-hidden">
-      {/* 🔹 Fullscreen Video Background from ImageKit */}
+      {/* 🔹 Fullscreen Video Background */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
           className="w-full h-full object-cover"
-          poster="https://ik.imagekit.io/zmcjodd1h/School%20website/videos/preview.jpg?tr=w-1600,q-50" // Optional fallback image
         >
-          <source src={videoURL} type="video/mp4" />
+          <source src={heroVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
 
-      {/* 🔹 Optional dark overlay */}
+      {/* 🔹 Optional dark overlay for better text contrast */}
       <div className="absolute inset-0 bg-black/20 z-10" />
 
       {/* 🔹 Motto Label - Bottom Left */}

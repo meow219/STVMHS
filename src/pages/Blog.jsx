@@ -6,19 +6,25 @@ import {
   MagnifyingGlassIcon,
   ClipboardDocumentListIcon,
   CalendarDaysIcon,
-  HandRaisedIcon,
-  SparklesIcon,
 } from "@heroicons/react/24/outline";
+
+// Local image imports
+import sportsDay from "../assets/Extra Curricular Activities/3.Bharadham.jpg";
+import scienceExpo from "../assets/Extra Curricular Activities/4.Silambam.jpg";
+import annualDay from "../assets/Extra Curricular Activities/2.Karate.jpg";
+import placeholder from "../assets/Extra Curricular Activities/1.Yoga.jpg";
+import backgroundImage from "../assets/bg/blogbg.jpg";
+import COCING from "../assets/Banner/COCING.jpg";
+import HSC from "../assets/Banner/HSC.jpg";
+import SSLC from "../assets/Banner/SSLC.jpg";
+import centum from "../assets/Banner/toppers (1).jpg";
 
 const Events = () => {
   const [activeTab, setActiveTab] = useState("events");
   const [modalImage, setModalImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const placeholder =
-    "https://ik.imagekit.io/zmcjodd1h/School%20website/Extra%20Curricular%20Activities/1.Yoga.jpg?tr=w-800,q-70,f-webp";
-
-  const TAB_ORDER = ["events", "Curricular", "achievements", "groups"];
+  const TAB_ORDER = ["events", "extracurriculars", "achievements", "groups"];
 
   const THEME_CONFIG = {
     events: {
@@ -26,7 +32,7 @@ const Events = () => {
       textColor: "text-gray-800",
       icon: <CalendarDaysIcon className="w-5 h-5 mr-1" />,
     },
-    Curricular: {
+    extracurriculars: {
       bgColor: "bg-yellow-100",
       textColor: "text-gray-800",
       icon: <MusicalNoteIcon className="w-5 h-5 mr-1" />,
@@ -48,102 +54,79 @@ const Events = () => {
       {
         id: 1,
         title: "Annual Sports Day",
+        date: "2025-11-15",
+        description:
+          "A day filled with exciting athletic competitions and team spirit activities.",
         icon: <TrophyIcon className="h-6 w-6 text-blue-600" />,
-        image:
-          "https://ik.imagekit.io/zmcjodd1h/School%20website/sports/IMG_0195.jpg?updatedAt=1751313852588?tr=w-800,q-70,f-webp",
+        image: sportsDay,
       },
       {
         id: 2,
         title: "Science Exhibition",
+        date: "2025-12-05",
+        description:
+          "Showcasing innovative projects by our young scientists and researchers.",
         icon: <AcademicCapIcon className="h-6 w-6 text-green-600" />,
-        image:
-          "https://ik.imagekit.io/zmcjodd1h/School%20website/science%20exhibtion/RCS_4011.jpg?updatedAt=1751313765249?tr=w-800,q-70,f-webp",
+        image: scienceExpo,
       },
       {
         id: 3,
         title: "Annual Day Celebration",
+        date: "2025-01-20",
+        description:
+          "Cultural performances and awards ceremony to celebrate our students' achievements.",
         icon: <MusicalNoteIcon className="h-6 w-6 text-red-600" />,
-        image:
-          "https://ik.imagekit.io/zmcjodd1h/School%20website/dance/DSC_5054.jpg?updatedAt=1751313139328?tr=w-800,q-70,f-webp",
-      },
-      {
-        id: 4,
-        title: "KG Day",
-        icon: <AcademicCapIcon className="h-6 w-6 text-yellow-600" />,
-        image:
-          "https://ik.imagekit.io/zmcjodd1h/School%20website/events/kg-day.jpg?tr=w-800,q-70,f-webp",
-      },
-      {
-        id: 5,
-        title: "Share and Care Day",
-        icon: <HandRaisedIcon className="h-6 w-6 text-purple-600" />,
-        image:
-          "https://ik.imagekit.io/zmcjodd1h/School%20website/events/share-care.jpg?tr=w-800,q-70,f-webp",
-      },
-      {
-        id: 6,
-        title: "Green Day",
-        icon: <SparklesIcon className="h-6 w-6 text-green-600" />,
-        image:
-          "https://ik.imagekit.io/zmcjodd1h/School%20website/events/green-day.jpg?tr=w-800,q-70,f-webp",
+        image: annualDay,
       },
     ],
     []
   );
 
-  const CurricularActivities = useMemo(
+  const extracurricularActivities = useMemo(
     () => [
       {
         title: "Bharathanatyam",
         description:
           "Grace and tradition come alive through mesmerizing Bharathanatyam performances.",
-        image:
-          "https://ik.imagekit.io/zmcjodd1h/School%20website/Extra%20Curricular%20Activities/3.Bharadham.jpg?updatedAt=1751313191122?tr=w-800,q-70,f-webp",
+        image: sportsDay,
       },
       {
         title: "Silambam",
         description:
           "Ancient martial arts like Silambam instill discipline, agility, and cultural pride.",
-        image:
-          "https://ik.imagekit.io/zmcjodd1h/School%20website/Extra%20Curricular%20Activities/4.Silambam.jpg?updatedAt=1751313191647?tr=w-800,q-70,f-webp",
+        image: scienceExpo,
       },
       {
         title: "Karate",
         description:
           "Karate sessions that build confidence, strength, and self-defense techniques.",
-        image:
-          "https://ik.imagekit.io/zmcjodd1h/School%20website/Extra%20Curricular%20Activities/2.Karate.jpg?updatedAt=1751313186486?tr=w-800,q-70,f-webp",
+        image: annualDay,
       },
       {
         title: "Yoga",
         description:
           "Yoga promotes mindfulness, flexibility, and holistic student wellness.",
-        image:
-          "https://ik.imagekit.io/zmcjodd1h/School%20website/Extra%20Curricular%20Activities/1.Yoga.jpg?updatedAt=1751313186432?tr=w-800,q-70,f-webp",
+        image: placeholder,
       },
     ],
     []
   );
 
-  const achievementBanners = useMemo(
-    () => [
-      "https://ik.imagekit.io/zmcjodd1h/School%20website/Banner/COCING.jpg?updatedAt=1751313044477?tr=w-1000,q-80,f-webp",
-      "https://ik.imagekit.io/zmcjodd1h/School%20website/Banner/HSC.jpg?updatedAt=1751313044523?tr=w-1000,q-80,f-webp",
-      "https://ik.imagekit.io/zmcjodd1h/School%20website/Banner/SSLC.jpg?updatedAt=1751313044486?tr=w-1000,q-80,f-webp",
-      "https://ik.imagekit.io/zmcjodd1h/School%20website/Banner/toppers%20(1).jpg?updatedAt=1751313044409?tr=w-1000,q-80,f-webp",
-    ],
-    []
-  );
-
+  const achievementBanners = useMemo(() => [COCING, HSC, SSLC, centum], []);
   const achievementImages = useMemo(
     () =>
-      Array.from(
-        { length: 8 },
-        () =>
-          "https://ik.imagekit.io/zmcjodd1h/School%20website/Extra%20Curricular%20Activities/4.Silambam.jpg?updatedAt=1751313191647?tr=w-800,q-70,f-webp"
+      Array.from({ length: 8 }, () =>
+        require("../assets/Extra Curricular Activities/2 (3).jpg")
       ),
     []
   );
+
+  const formatDate = (dateString) =>
+    new Date(dateString).toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
 
   const handleImageClick = (img) => {
     setModalImage(img);
@@ -158,7 +141,7 @@ const Events = () => {
   const EventsTab = () => (
     <section>
       <h2 className="text-center mb-12 text-3xl font-bold text-gray-900">
-        Beyond the classrooms
+        What's Coming Next?
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {upcomingEvents.map((event) => (
@@ -177,24 +160,27 @@ const Events = () => {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src =
-              "https://ik.imagekit.io/zmcjodd1h/School%20website/Extra%20Curricular%20Activities/1.Yoga.jpg?updatedAt=1751313186432&tr=w-800,q-70,f-webp";
+            e.target.src = placeholder;
           }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
       </div>
       <div className="p-6 group-hover:bg-gray-50 transition-colors duration-300">
-        <div className="flex items-center">
+        <div className="flex items-center mb-3">
           {event.icon}
-          <h3 className="text-xl font-bold text-gray-900 group-hover:text-cyan-600 transition-colors duration-300 ml-2">
-            {event.title}
-          </h3>
+          <span className="ml-3 text-gray-500">{formatDate(event.date)}</span>
         </div>
+        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors duration-300">
+          {event.title}
+        </h3>
+        <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+          {event.description}
+        </p>
       </div>
     </div>
   );
 
-  const CurricularTab = () => (
+  const ExtracurricularsTab = () => (
     <section>
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-900">
@@ -206,7 +192,7 @@ const Events = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {CurricularActivities.map((activity, i) => (
+        {extracurricularActivities.map((activity, i) => (
           <ActivityCard key={i} activity={activity} />
         ))}
       </div>
@@ -220,7 +206,10 @@ const Events = () => {
           className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
           src={activity.image}
           alt={activity.title}
-          onError={(e) => (e.target.src = placeholder)}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = placeholder;
+          }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
       </div>
@@ -283,6 +272,8 @@ const Events = () => {
     </div>
   );
 
+
+  // group start
   const GROUPS = [
     {
       id: 1,
@@ -338,10 +329,14 @@ const Events = () => {
       <div className="absolute -top-6 -left-6 w-12 h-12 bg-white p-2 rounded-md shadow-md flex items-center justify-center font-bold text-black text-xl">
         {id}
       </div>
-
-      <h3 className="text-base font-medium pl-12">{subjects.join(" / ")}</h3>
+  
+      <h3 className="text-base font-medium pl-12">
+        {subjects.join(" / ")}
+      </h3>
     </div>
   );
+  
+  // group end
 
   return (
     <div
@@ -349,21 +344,17 @@ const Events = () => {
     >
       <div
         className="text-white py-20 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://ik.imagekit.io/zmcjodd1h/School%20website/bg/blogbg.jpg?tr=w-1600,q-80,f-webp')",
-        }}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <div className="max-w-6xl mx-auto px-4 text-center">
           <div className="flex justify-center flex-wrap gap-4">
-            {TAB_ORDER.map((tab, i) => (
+            {TAB_ORDER.map((tab) => (
               <TabButton
                 key={tab}
                 tab={tab}
                 activeTab={activeTab}
                 onClick={() => setActiveTab(tab)}
                 config={THEME_CONFIG[tab]}
-                index={i}
               />
             ))}
           </div>
@@ -372,7 +363,7 @@ const Events = () => {
 
       <main className="max-w-6xl mx-auto px-4 py-12 transition-opacity duration-500 ease-in-out">
         {activeTab === "events" && <EventsTab />}
-        {activeTab === "Curricular" && <CurricularTab />}
+        {activeTab === "extracurriculars" && <ExtracurricularsTab />}
         {activeTab === "achievements" && <AchievementsTab />}
         {activeTab === "groups" && <GroupsTab />}
       </main>
@@ -395,11 +386,24 @@ const TabButton = ({ tab, index, activeTab, onClick, config }) => (
         : "bg-gray-100 text-black hover:scale-105"
     }`}
   >
+    <div
+      className={`absolute inset-0 ${
+        activeTab === tab ? config.bgColor : "bg-gray-100"
+      }`}
+      style={{
+        clipPath:
+          index % 2 === 0
+            ? "polygon(70% 0%, 0% 100%, 100% 100%)"
+            : "polygon(0% 0%, 100% 0%, 50% 100%)",
+      }}
+    ></div>
+
     <div className="relative z-10 flex items-center gap-2">
       <span className="text-black">{config.icon}</span>
-      {tab === "Curricular" ? (
+      {tab === "extracurriculars" ? (
         <>
-          <span>Curricular</span>
+          <span>Extra</span>
+          <span>Curriculars</span>
         </>
       ) : (
         <span>{tab.charAt(0).toUpperCase() + tab.slice(1)}</span>

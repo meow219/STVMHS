@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useAnimation, AnimatePresence } from "framer-motion";
 import useScrollTriggeredCountUp from "../useScrollTriggeredCountUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,10 +8,6 @@ import {
   faTrophy,
   faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons";
-
-// ✅ Optimized background image from ImageKit
-const bgImage =
-  "https://ik.imagekit.io/zmcjodd1h/School%20website/school%20view/Page%20No.1.JPG?updatedAt=1751313741751?tr=w-1600,q-80,f-webp";
 
 const Achievements = () => {
   const statRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
@@ -28,45 +24,25 @@ const Achievements = () => {
       label: "Students",
       count: studentCount,
       ref: statRefs[0],
-      icon: (
-        <FontAwesomeIcon
-          icon={faUserGroup}
-          className="text-white text-2xl sm:text-3xl"
-        />
-      ),
+      icon: <FontAwesomeIcon icon={faUserGroup} className="text-white text-2xl sm:text-3xl" />,
     },
     {
       label: "Teachers",
       count: teacherCount,
       ref: statRefs[1],
-      icon: (
-        <FontAwesomeIcon
-          icon={faChalkboardUser}
-          className="text-white text-2xl sm:text-3xl"
-        />
-      ),
+      icon: <FontAwesomeIcon icon={faChalkboardUser} className="text-white text-2xl sm:text-3xl" />,
     },
     {
       label: "Result",
       count: awardCount,
       ref: statRefs[2],
-      icon: (
-        <FontAwesomeIcon
-          icon={faTrophy}
-          className="text-white text-2xl sm:text-3xl"
-        />
-      ),
+      icon: <FontAwesomeIcon icon={faTrophy} className="text-white text-2xl sm:text-3xl" />,
     },
     {
       label: "Established Year",
       count: courseCount,
       ref: statRefs[3],
-      icon: (
-        <FontAwesomeIcon
-          icon={faCalendarDays}
-          className="text-white text-2xl sm:text-3xl"
-        />
-      ),
+      icon: <FontAwesomeIcon icon={faCalendarDays} className="text-white text-2xl sm:text-3xl" />,
     },
   ];
 
@@ -89,13 +65,12 @@ const Achievements = () => {
       className="w-full py-10 sm:py-20 relative overflow-hidden"
       ref={sectionRef}
     >
-      {/* ✅ Background Image from ImageKit */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src={bgImage}
-          alt="School students background"
+          src="https://images.yourstory.com/cs/wordpress/2017/08/yourstory-university-students.jpg?mode=crop&crop=faces&ar=2%3A1&format=auto&w=1920&q=75"
+          alt="School background"
           className="w-full h-full object-cover"
-          loading="lazy"
         />
         <div className="absolute inset-0 bg-indigo-900/70"></div>
       </div>
@@ -105,6 +80,7 @@ const Achievements = () => {
         <div className="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
           {/* Left: Heading and Stats */}
           <div className="col-span-2">
+            {/* Heading */}
             <div className="text-center lg:text-left mb-6">
               <h2 className="text-3xl sm:text-4xl font-bold font-serif text-white">
                 Career Excellence
@@ -114,6 +90,7 @@ const Achievements = () => {
               </p>
             </div>
 
+            {/* Stats */}
             <div className="grid grid-cols-2 gap-4 w-full">
               {stats.map((stat, index) => (
                 <motion.div
@@ -130,18 +107,14 @@ const Achievements = () => {
                   custom={index}
                 >
                   <div className="flex justify-center mb-2">{stat.icon}</div>
-                  <h3 className="text-2xl sm:text-4xl font-extrabold text-red-400 mb-1">
-                    {stat.count}
-                  </h3>
-                  <p className="text-sm sm:text-base text-white/90">
-                    {stat.label}
-                  </p>
+                  <h3 className="text-2xl sm:text-4xl font-extrabold text-red-400 mb-1">{stat.count}</h3>
+                  <p className="text-sm sm:text-base text-white/90">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          {/* Right: Description Text */}
+          {/* Right: Paragraph aligned to stat cards */}
           <motion.div
             className="col-span-1 h-full flex items-start mt-40 lg:mt-14 text-white text-justify text-base sm:text-lg leading-relaxed"
             initial={{ opacity: 0, x: 100 }}
@@ -149,17 +122,15 @@ const Achievements = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <p>
-              <strong>St. Thomas Vidyalayam</strong> was founded with the
-              foremost aim of inculcating the values of discipline, character,
-              sincerity, obedience and punctuality among the students, followed
-              closely by giving highest quality education to children from all
-              classes and sections of our society.
+              <strong>St. Thomas Vidyalayam</strong> was founded with the foremost aim of
+              inculcating the values of discipline, character, sincerity, obedience and punctuality
+              among the students, followed closely by giving highest quality education to children
+              from all classes and sections of our society.
               <br />
               <br />
-              The teaching faculty consists of experienced and dedicated team of
-              trained Under Graduates, Post Graduates and specialists in various
-              fields. They contribute immensely to the high Academic standards
-              and achievements in a consistent manner over the years.
+              The teaching faculty consists of experienced and dedicated team of trained Under
+              Graduates, Post Graduates and specialists in various fields. They contribute immensely
+              to the high Academic standards and achievements in a consistent manner over the years.
             </p>
           </motion.div>
         </div>

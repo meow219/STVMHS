@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-// 🔄 Replace with your ImageKit-optimized URL
-const kidsImage = "https://ik.imagekit.io/zmcjodd1h/School%20website/science%20exhibtion/RCS_4017.jpg?updatedAt=1751313766124?tr=w-800,q-70,f-webp";
+import kidsImage from "../../assets/Extra Curricular Activities/1 (3).jpg";
 
 const PTA = () => {
   return (
@@ -45,7 +43,6 @@ const PTA = () => {
           <img
             src={kidsImage}
             alt="PTA event"
-            loading="lazy"
             className="w-full h-full object-cover rounded-2xl shadow-xl ring-4 ring-pink-200 transition duration-500 group-hover:scale-105 group-hover:shadow-pink-200"
           />
         </div>

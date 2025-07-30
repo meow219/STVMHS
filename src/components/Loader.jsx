@@ -1,15 +1,15 @@
 import React from "react";
+import loaderVideo from "../assets/Loader/Loader.webm"; // Adjust the path based on your folder structure
 
 const Loader = () => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent">
+    <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md bg-white/30">
       <video
-        src="https://ik.imagekit.io/zmcjodd1h/School%20website/Loader/Loader.webm?tr=w-100,f-webm"
+        src={loaderVideo}
         autoPlay
         loop
         muted
         className="w-20 h-20 object-contain"
-        style={{ background: "transparent" }}
       />
     </div>
   );

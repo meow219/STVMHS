@@ -1,10 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-// 📸 Optimized ImageKit image
-const kidsImage =
-  "https://ik.imagekit.io/zmcjodd1h/School%20website/silambam/4.Silambam.jpg?updatedAt=1751313795279?tr=w-600,q-60,f-webp";
-  
+import kidsImage from "../../assets/Extra Curricular Activities/1 (2).jpg";
 
 const TestimonialSection = () => {
   return (
@@ -32,8 +28,8 @@ const TestimonialSection = () => {
           <img
             src={kidsImage}
             alt="Children participating in a school event"
-            loading="lazy"
             className="w-full h-full object-cover rounded-2xl shadow-xl ring-4 ring-yellow-200 transition duration-500 group-hover:scale-105 group-hover:shadow-yellow-200"
+
           />
         </div>
 

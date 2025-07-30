@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import emblem from "../../assets/School pillars/4.Principal.jpg";
 
 const HorizontalCard = () => {
   const ref = useRef(null);
@@ -23,7 +24,7 @@ const HorizontalCard = () => {
           className="w-full overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl bg-white"
         >
           <div className="flex flex-col lg:flex-row">
-            {/* 🔹 Image Section */}
+            {/* Image Section */}
             <motion.div
               className="lg:w-1/2 w-full relative group overflow-hidden min-h-[240px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[400px]"
               variants={leftVariants}
@@ -32,15 +33,12 @@ const HorizontalCard = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <img
-                src="https://ik.imagekit.io/zmcjodd1h/School%20website/School%20pillars/4.Principal.jpg?updatedAt=1751313717208?tr=w-800,q-80,f-webp"
+                src={emblem}
                 alt="Principal"
-                loading="lazy" // ✅ Lazy loading for better performance
-                width="800" // ✅ Set intrinsic size for better layout shift handling
-                height="600"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
-              {/* 🔹 Name Label */}
+              {/* Name Label */}
               <div className="absolute bottom-3 right-3 z-10">
                 <div className="relative bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-bold shadow-lg px-3 sm:px-4 py-1 sm:py-2 rounded-md">
                   <div className="flex flex-col">
@@ -56,7 +54,7 @@ const HorizontalCard = () => {
               </div>
             </motion.div>
 
-            {/* 🔹 Text Section */}
+            {/* Text Section */}
             <motion.div
               className="lg:w-1/2 w-full p-4 sm:p-6 md:p-8 flex flex-col justify-center bg-white"
               variants={rightVariants}
@@ -81,16 +79,16 @@ const HorizontalCard = () => {
                   <p>
                     Founded in{" "}
                     <span className="font-semibold text-cyan-600">1982</span>{" "}
-                    under the visionary leadership of Mr. X. Williams, Secretary
-                    of the National Phonetary Society of India (NPSI), our
-                    institution began with humble beginnings in three small
+                    under the visionary leadership of Mr. X. Williams,
+                    Secretary of the National Phonetary Society of India (NPSI),
+                    our institution began with humble beginnings in three small
                     buildings.
                   </p>
                   <p>
                     Today, we proudly serve over{" "}
-                    <span className="font-semibold">1,000 students</span> across
-                    a modern campus, maintaining our commitment to academic
-                    excellence while embracing innovative teaching
+                    <span className="font-semibold">1,000 students</span>{" "}
+                    across a modern campus, maintaining our commitment to
+                    academic excellence while embracing innovative teaching
                     methodologies.
                   </p>
                 </div>

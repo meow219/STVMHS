@@ -1,7 +1,5 @@
 import React from "react";
-
-// Use ImageKit CDN version of your modal image
-const ModalImage = "https://ik.imagekit.io/zmcjodd1h/School%20website/modal/modal.png?updatedAt=1751313622697?tr=w-800,q-80,f-webp";
+import ModalImage from "../assets/modal/modal.png"; // Update as needed
 
 const AdmissionModal = ({ isVisible, onClose }) => {
   return (
@@ -15,26 +13,25 @@ const AdmissionModal = ({ isVisible, onClose }) => {
           isVisible ? "scale-100" : "scale-95"
         }`}
       >
-        {/* Modal Container */}
-        <div className="relative rounded-md shadow-2xl overflow-hidden w-full bg-white">
-          {/* Modal Image */}
+        {/* Modal Card with slightly sharp edges */}
+        <div className="relative rounded-md shadow-2xl overflow-hidden w-full">
+          {/* Image */}
           <img
             src={ModalImage}
-            alt="Admission Open Banner"
+            alt="Admission"
             className="w-full h-auto object-cover"
-            loading="lazy"
           />
 
           {/* Close Button */}
           <button
             onClick={onClose}
             className="absolute top-2 right-2 bg-green-900 text-white text-lg w-8 h-8 rounded-full flex items-center justify-center hover:bg-green-700 transition"
-            aria-label="Close Modal"
+            aria-label="Close"
           >
             &times;
           </button>
 
-          {/* Register Button */}
+          {/* Register Now Button */}
           <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 z-10 px-2 w-full flex justify-center">
             <a
               href="https://forms.gle/YyJB5x3ssc4CSbkz8"

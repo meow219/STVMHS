@@ -42,24 +42,25 @@ const AdmissionCard = () => {
           >
             <div className="space-y-3">
               <h2 className="text-4xl tracking-tight font-serif font-bold text-black">
-                Step In. Shine Ahead!
+              Step In. Shine Ahead!
               </h2>
               <div className="w-20 h-1 bg-gradient-to-r from-yellow-300 to-yellow-400 rounded-full mt-2"></div>
             </div>
 
             <p className="text-gray-700 leading-relaxed text-justify">
-              Give your child the best start at{" "}
-              <strong className="text-yellow-600">STVMHS</strong>, where the
-              curriculum meets a nurturing, student-centric environment.
-            </p>
+  Give your child the best start at{" "}
+  <strong className="text-yellow-600">STVMHS</strong>, where the
+  curriculum meets a nurturing, student-centric environment.
+</p>
 
-            <div className="pt-2">
-              <p className="font-medium text-gray-700 text-justify">
-                Visit us on our social media platforms to explore more about our
-                vibrant community. Join the STVMHS family, where every child’s
-                journey is filled with opportunity and growth.
-              </p>
-            </div>
+<div className="pt-2">
+  <p className="font-medium text-gray-700 text-justify">
+    Visit us on our social media platforms to explore more about our vibrant community.
+    Join the STVMHS family, where every child’s journey is filled with opportunity and growth.
+  </p>
+</div>
+
+           
 
             {/* Fancy Slide Hover Enroll Now Button */}
             <div className="pt-4">
