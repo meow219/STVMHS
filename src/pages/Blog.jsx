@@ -6,25 +6,34 @@ import {
   MagnifyingGlassIcon,
   ClipboardDocumentListIcon,
   CalendarDaysIcon,
+  HandRaisedIcon,
+  SparklesIcon,
 } from "@heroicons/react/24/outline";
 
 // Local image imports
-import sportsDay from "../assets/Extra Curricular Activities/3.Bharadham.jpg";
-import scienceExpo from "../assets/Extra Curricular Activities/4.Silambam.jpg";
-import annualDay from "../assets/Extra Curricular Activities/2.Karate.jpg";
-import placeholder from "../assets/Extra Curricular Activities/1.Yoga.jpg";
-import backgroundImage from "../assets/bg/blogbg.jpg";
-import COCING from "../assets/Banner/COCING.jpg";
-import HSC from "../assets/Banner/HSC.jpg";
-import SSLC from "../assets/Banner/SSLC.jpg";
-import centum from "../assets/Banner/toppers (1).jpg";
+import placeholder from "../assest/Abacus/20250217_113814.jpg";
+import sportsDay from "../assest/sports/DSC07579.jpg";
+import scienceExhibition from "../assest/science exhibtion/RCS_3997.jpg";
+import annualDay from "../assest/Dance/DSC04173.jpg";
+import kgDay from "../assest/Lkg/20250709_133710.jpg";
+import shareCareDay from "../assest/Lkg/20250709_133639.jpg";
+import greenDay from "../assest/Lkg/20250709_133639.jpg";
+import bharathanatyam from "../assest/Lkg/20250709_133639.jpg";
+import silambam from "../assest/Lkg/20250709_133639.jpg";
+import karate from "../assest/Lkg/20250709_133639.jpg";
+import yoga from "../assest/Lkg/20250709_133639.jpg";
+import codingBanner from "../assest/Banner/COCING.jpg";
+import hscBanner from "../assest/Banner/HSC.jpg";
+import sslcBanner from "../assest/Banner/SSLC.jpg";
+import toppersBanner from "../assest/Banner/toppers (1).jpg";
+import blogBg from "../assest/Bg/blogbg.jpg";
 
 const Events = () => {
   const [activeTab, setActiveTab] = useState("events");
   const [modalImage, setModalImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const TAB_ORDER = ["events", "extracurriculars", "achievements", "groups"];
+  const TAB_ORDER = ["events", "Curricular", "achievements", "groups"];
 
   const THEME_CONFIG = {
     events: {
@@ -32,7 +41,7 @@ const Events = () => {
       textColor: "text-gray-800",
       icon: <CalendarDaysIcon className="w-5 h-5 mr-1" />,
     },
-    extracurriculars: {
+    Curricular: {
       bgColor: "bg-yellow-100",
       textColor: "text-gray-800",
       icon: <MusicalNoteIcon className="w-5 h-5 mr-1" />,
@@ -54,79 +63,82 @@ const Events = () => {
       {
         id: 1,
         title: "Annual Sports Day",
-        date: "2025-11-15",
-        description:
-          "A day filled with exciting athletic competitions and team spirit activities.",
         icon: <TrophyIcon className="h-6 w-6 text-blue-600" />,
         image: sportsDay,
       },
       {
         id: 2,
         title: "Science Exhibition",
-        date: "2025-12-05",
-        description:
-          "Showcasing innovative projects by our young scientists and researchers.",
         icon: <AcademicCapIcon className="h-6 w-6 text-green-600" />,
-        image: scienceExpo,
+        image: scienceExhibition,
       },
       {
         id: 3,
         title: "Annual Day Celebration",
-        date: "2025-01-20",
-        description:
-          "Cultural performances and awards ceremony to celebrate our students' achievements.",
         icon: <MusicalNoteIcon className="h-6 w-6 text-red-600" />,
         image: annualDay,
+      },
+      {
+        id: 4,
+        title: "KG Day",
+        icon: <AcademicCapIcon className="h-6 w-6 text-yellow-600" />,
+        image: kgDay,
+      },
+      {
+        id: 5,
+        title: "Share and Care Day",
+        icon: <HandRaisedIcon className="h-6 w-6 text-purple-600" />,
+        image: shareCareDay,
+      },
+      {
+        id: 6,
+        title: "Green Day",
+        icon: <SparklesIcon className="h-6 w-6 text-green-600" />,
+        image: greenDay,
       },
     ],
     []
   );
 
-  const extracurricularActivities = useMemo(
+  const CurricularActivities = useMemo(
     () => [
       {
         title: "Bharathanatyam",
         description:
           "Grace and tradition come alive through mesmerizing Bharathanatyam performances.",
-        image: sportsDay,
+        image: bharathanatyam,
       },
       {
         title: "Silambam",
         description:
           "Ancient martial arts like Silambam instill discipline, agility, and cultural pride.",
-        image: scienceExpo,
+        image: silambam,
       },
       {
         title: "Karate",
         description:
           "Karate sessions that build confidence, strength, and self-defense techniques.",
-        image: annualDay,
+        image: karate,
       },
       {
         title: "Yoga",
         description:
           "Yoga promotes mindfulness, flexibility, and holistic student wellness.",
-        image: placeholder,
+        image: yoga,
       },
     ],
     []
   );
 
-  const achievementBanners = useMemo(() => [COCING, HSC, SSLC, centum], []);
-  const achievementImages = useMemo(
-    () =>
-      Array.from({ length: 8 }, () =>
-        require("../assets/Extra Curricular Activities/2 (3).jpg")
-      ),
+  const achievementBanners = useMemo(
+    () => [codingBanner, hscBanner, sslcBanner, toppersBanner],
     []
   );
 
-  const formatDate = (dateString) =>
-    new Date(dateString).toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
+  const achievementImages = useMemo(
+    () => Array.from({ length: 8 }, () => silambam),
+    []
+  );
 
   const handleImageClick = (img) => {
     setModalImage(img);
@@ -141,7 +153,7 @@ const Events = () => {
   const EventsTab = () => (
     <section>
       <h2 className="text-center mb-12 text-3xl font-bold text-gray-900">
-        What's Coming Next?
+        Beyond the classrooms
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {upcomingEvents.map((event) => (
@@ -166,21 +178,17 @@ const Events = () => {
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
       </div>
       <div className="p-6 group-hover:bg-gray-50 transition-colors duration-300">
-        <div className="flex items-center mb-3">
+        <div className="flex items-center">
           {event.icon}
-          <span className="ml-3 text-gray-500">{formatDate(event.date)}</span>
+          <h3 className="text-xl font-bold text-gray-900 group-hover:text-cyan-600 transition-colors duration-300 ml-2">
+            {event.title}
+          </h3>
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors duration-300">
-          {event.title}
-        </h3>
-        <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
-          {event.description}
-        </p>
       </div>
     </div>
   );
 
-  const ExtracurricularsTab = () => (
+  const CurricularTab = () => (
     <section>
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-900">
@@ -192,7 +200,7 @@ const Events = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {extracurricularActivities.map((activity, i) => (
+        {CurricularActivities.map((activity, i) => (
           <ActivityCard key={i} activity={activity} />
         ))}
       </div>
@@ -206,10 +214,7 @@ const Events = () => {
           className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
           src={activity.image}
           alt={activity.title}
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = placeholder;
-          }}
+          onError={(e) => (e.target.src = placeholder)}
         />
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
       </div>
@@ -272,8 +277,6 @@ const Events = () => {
     </div>
   );
 
-
-  // group start
   const GROUPS = [
     {
       id: 1,
@@ -329,14 +332,10 @@ const Events = () => {
       <div className="absolute -top-6 -left-6 w-12 h-12 bg-white p-2 rounded-md shadow-md flex items-center justify-center font-bold text-black text-xl">
         {id}
       </div>
-  
-      <h3 className="text-base font-medium pl-12">
-        {subjects.join(" / ")}
-      </h3>
+
+      <h3 className="text-base font-medium pl-12">{subjects.join(" / ")}</h3>
     </div>
   );
-  
-  // group end
 
   return (
     <div
@@ -344,17 +343,20 @@ const Events = () => {
     >
       <div
         className="text-white py-20 bg-cover bg-center"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{
+          backgroundImage: `url(${blogBg})`,
+        }}
       >
         <div className="max-w-6xl mx-auto px-4 text-center">
           <div className="flex justify-center flex-wrap gap-4">
-            {TAB_ORDER.map((tab) => (
+            {TAB_ORDER.map((tab, i) => (
               <TabButton
                 key={tab}
                 tab={tab}
                 activeTab={activeTab}
                 onClick={() => setActiveTab(tab)}
                 config={THEME_CONFIG[tab]}
+                index={i}
               />
             ))}
           </div>
@@ -363,7 +365,7 @@ const Events = () => {
 
       <main className="max-w-6xl mx-auto px-4 py-12 transition-opacity duration-500 ease-in-out">
         {activeTab === "events" && <EventsTab />}
-        {activeTab === "extracurriculars" && <ExtracurricularsTab />}
+        {activeTab === "Curricular" && <CurricularTab />}
         {activeTab === "achievements" && <AchievementsTab />}
         {activeTab === "groups" && <GroupsTab />}
       </main>
@@ -386,24 +388,11 @@ const TabButton = ({ tab, index, activeTab, onClick, config }) => (
         : "bg-gray-100 text-black hover:scale-105"
     }`}
   >
-    <div
-      className={`absolute inset-0 ${
-        activeTab === tab ? config.bgColor : "bg-gray-100"
-      }`}
-      style={{
-        clipPath:
-          index % 2 === 0
-            ? "polygon(70% 0%, 0% 100%, 100% 100%)"
-            : "polygon(0% 0%, 100% 0%, 50% 100%)",
-      }}
-    ></div>
-
     <div className="relative z-10 flex items-center gap-2">
       <span className="text-black">{config.icon}</span>
-      {tab === "extracurriculars" ? (
+      {tab === "Curricular" ? (
         <>
-          <span>Extra</span>
-          <span>Curriculars</span>
+          <span>Curricular</span>
         </>
       ) : (
         <span>{tab.charAt(0).toUpperCase() + tab.slice(1)}</span>

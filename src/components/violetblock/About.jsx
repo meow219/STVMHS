@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import kidsImage from "../../assets/Extra Curricular Activities/1 (2).jpg";
+
+// Local image import
+import kidsImage from "../../assest/silambam/4.Silambam.jpg";
 
 const TestimonialSection = () => {
   return (
@@ -28,8 +30,8 @@ const TestimonialSection = () => {
           <img
             src={kidsImage}
             alt="Children participating in a school event"
+            loading="lazy"
             className="w-full h-full object-cover rounded-2xl shadow-xl ring-4 ring-yellow-200 transition duration-500 group-hover:scale-105 group-hover:shadow-yellow-200"
-
           />
         </div>
 

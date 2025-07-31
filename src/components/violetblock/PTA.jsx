@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import kidsImage from "../../assets/Extra Curricular Activities/1 (3).jpg";
+
+// Local image import
+import kidsImage from "../../assest/science exhibtion/RCS_3997.jpg";
 
 const PTA = () => {
   return (
@@ -43,6 +45,7 @@ const PTA = () => {
           <img
             src={kidsImage}
             alt="PTA event"
+            loading="lazy"
             className="w-full h-full object-cover rounded-2xl shadow-xl ring-4 ring-pink-200 transition duration-500 group-hover:scale-105 group-hover:shadow-pink-200"
           />
         </div>

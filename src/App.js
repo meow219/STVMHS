@@ -10,7 +10,6 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import ChatBox from "./components/chatbox/ChatBox";
 import Loader from "./components/Loader";
-import ShashaImg from "./assets/Chatbot/Shasha.jpg";
 import AdmissionModal from "./components/AdmissionModal";
 
 // Pages
@@ -20,6 +19,10 @@ import Gallery from "./pages/Gallery";
 import VioletBlock from "./pages/VioletBlock";
 import Contact from "./pages/Contact";
 
+// Local image import
+import ShashaImg from "./assest/Chatbot/shasha logo tilt.PNG";
+
+// ScrollToTop on Route Change
 const ScrollToTopOnRouteChange = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -57,12 +60,10 @@ function App() {
 
   if (loading) return <Loader />;
 
-  const butterscotch = "#ebebd3";
-
   return (
     <Router>
       <ScrollToTopOnRouteChange />
-      <div className="flex flex-col min-h-screen" style={{ backgroundColor: butterscotch }}>
+      <div className="flex flex-col min-h-screen bg-[#ebebd3]">
         <Navbar />
 
         <main className="flex-grow">
@@ -78,15 +79,17 @@ function App() {
         <Footer />
         <ScrollToTop />
 
+        {/* Admission Modal */}
         <AdmissionModal isVisible={showAdmissionModal} onClose={handleCloseAdmissionModal} />
 
+        {/* Chatbot Trigger */}
         {!showAdmissionModal && (
           <div className="fixed bottom-6 right-6 z-50 flex items-end gap-2">
             {(showPopup || (hovered && !isChatbotOpen)) && (
               <div className="bg-white text-sm rounded-xl shadow-lg p-3 animate-fade-in border max-w-xs">
                 <p>
                   <span className="font-semibold">Hi! 👋</span> <br />
-                  I’m Shasha, <br /> Our School assistant
+                  I'm Shasha, <br /> Our School assistant
                 </p>
               </div>
             )}
@@ -98,16 +101,23 @@ function App() {
                 setShowPopup(false);
               }}
               className="rounded-full w-14 h-14 bg-white shadow-lg hover:scale-105 transition-transform overflow-hidden"
+              aria-label="Open School Assistant"
             >
               <img
                 src={ShashaImg}
-                alt="Shasha"
+                alt="Shasha - School Assistant"
                 className="w-full h-full object-cover transform scale-110"
+                loading="lazy"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  e.target.parentElement.classList.add("bg-blue-500"); // Fallback background
+                }}
               />
             </button>
           </div>
         )}
 
+        {/* ChatBox Component */}
         <ChatBox isActive={isChatbotOpen} toggle={() => setIsChatbotOpen(false)} />
       </div>
     </Router>

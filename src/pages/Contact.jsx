@@ -8,7 +8,11 @@ import {
   FaYoutube,
   FaWhatsapp,
 } from "react-icons/fa";
-import backgroundImage from "../assets/bg/blogbg.jpg";
+
+// 🔁 ImageKit CDN background image (optimized for web)
+const backgroundImage =
+  "https://ik.imagekit.io/zmcjodd1h/School%20website/bg/blogbg.jpg?updatedAt=1751313063280?tr=w-1600,q-80,f-webp";
+
 const Contact = () => {
   return (
     <div className="min-h-screen">
@@ -17,9 +21,9 @@ const Contact = () => {
         className="text-white py-28 bg-cover bg-center"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       ></div>
+
       <div className="max-w-6xl mt-12 mx-auto px-4 text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
-          {" "}
           <span className="text-amber-600">Contact</span> Us
         </h1>
         <p className="text-xl max-w-2xl mx-auto font-serif">
@@ -84,24 +88,32 @@ const Contact = () => {
                 <a
                   href="https://facebook.com"
                   className="text-gray-600 hover:text-blue-400 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FaFacebook className="h-8 w-8" />
                 </a>
                 <a
                   href="https://instagram.com"
                   className="text-gray-600 hover:text-pink-400 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FaInstagram className="h-8 w-8" />
                 </a>
                 <a
                   href="https://www.whatsapp.com/channel/0029Va9R63NAojZ17JrlGS35"
                   className="text-gray-600 hover:text-green-400 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FaWhatsapp className="h-8 w-8" />
                 </a>
                 <a
                   href="https://www.youtube.com/@stthomasvidyalayamvioleted7279"
                   className="text-gray-600 hover:text-red-500 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FaYoutube className="h-8 w-8" />
                 </a>
@@ -109,6 +121,7 @@ const Contact = () => {
             </div>
           </div>
 
+          {/* Admission Section */}
           <div className="bg-white rounded-xl shadow-md p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 font-serif">
               Admission Process
@@ -159,15 +172,17 @@ const Contact = () => {
                 </ul>
               </div>
 
-              <button
-                onClick={() =>
-                  window.open("https://forms.gle/YyJB5x3ssc4CSbkz8", "_blank")
-                }
-                className="relative w-full h-12 overflow-hidden border border-cyan-600 shadow-2xl rounded-lg text-cyan-700 font-bold group transition-all duration-500 hover:text-white"
-              >
-                <span className="relative z-10">Application Form</span>
-                <span className="absolute top-1/2 left-1/2 w-0 h-0 bg-cyan-400 rounded-full transform -translate-x-1/2 -translate-y-1/2 group-hover:w-[900px] group-hover:h-[900px] transition-all duration-500 z-0"></span>
-              </button>
+              {/* 🎨 Fancy Sliding Hover Button (Fixed Size) */}
+              <div className="pt-2 flex justify-center">
+                <button
+                  onClick={() =>
+                    window.open("https://forms.gle/YyJB5x3ssc4CSbkz8", "_blank")
+                  }
+                  className="relative h-12 w-40 overflow-hidden border border-black shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-yellow-400 before:transition-all before:duration-300 hover:text-white hover:shadow-black hover:before:-rotate-180 text-black font-bold"
+                >
+                  <span className="relative z-10">Application Form</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

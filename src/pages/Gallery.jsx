@@ -8,155 +8,81 @@ import React, {
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-// Image imports
+// Import local images
+import backgroundImage from "../assest/Bg/blogbg.jpg";
 
-import Events1 from "../assets/science exhibtion/RCS_3997.jpg";
-import Events2 from "../assets/science exhibtion/RCS_3999.jpg";
-import Events3 from "../assets/science exhibtion/RCS_4000.jpg";
-import Events4 from "../assets/science exhibtion/RCS_4011.jpg";
-import Events5 from "../assets/science exhibtion/RCS_4015.jpg";
-import Events6 from "../assets/science exhibtion/RCS_4016.jpg";
-import Events7 from "../assets/science exhibtion/RCS_4017.jpg";
-import Events8 from "../assets/science exhibtion/RCS_4019.jpg";
-import Events9 from "../assets/science exhibtion/RCS_4020.jpg";
-import Events10 from "../assets/science exhibtion/RCS_4021.jpg";
-import Events11 from "../assets/science exhibtion/RCS_4022.jpg";
-import Events12 from "../assets/science exhibtion/RCS_4029.jpg";
-import Events13 from "../assets/science exhibtion/RCS_4031.jpg";
-import Events14 from "../assets/science exhibtion/RCS_4032.jpg";
-import Events15 from "../assets/science exhibtion/RCS_4052.jpg";
+// Import sports images
+import sports1 from "../assest/sports/DSC07579.jpg";
+import sports2 from "../assest/sports/DSC07580.jpg";
+import sports3 from "../assest/sports/DSC07581.jpg";
+import sports4 from "../assest/sports/DSC07582.jpg";
+import sports5 from "../assest/sports/DSC07791.jpg";
+import sports6 from "../assest/sports/DSC07802.jpg";
+import sports7 from "../assest/sports/DSC07807.jpg";
+import sports8 from "../assest/sports/DSC07821.jpg";
 
-import sport1 from "../assets/sports/DSC07579.jpg";
-import sport2 from "../assets/sports/DSC07580.jpg";
-import sport3 from "../assets/sports/DSC07581.jpg";
-import sport4 from "../assets/sports/DSC07582.jpg";
-import sport5 from "../assets/sports/DSC07791.jpg";
-import sport6 from "../assets/sports/DSC07802.jpg";
-import sport7 from "../assets/sports/DSC07807.jpg";
-import sport8 from "../assets/sports/DSC07821.jpg";
-import sport9 from "../assets/sports/DSC07857.jpg";
-import sport10 from "../assets/sports/DSC07905.jpg";
-import sport11 from "../assets/sports/DSC07968.jpg";
-import sport12 from "../assets/sports/DSC08262.jpg";
-import sport13 from "../assets/sports/DSC08296.jpg";
-import sport14 from "../assets/sports/DSC_4809.jpg";
-import sport15 from "../assets/sports/IMG_0036.jpg";
-import sport16 from "../assets/sports/IMG_0116.jpg";
-import sport17 from "../assets/sports/IMG_0186.jpg";
-import sport18 from "../assets/sports/IMG_0195.jpg";
-import sport19 from "../assets/sports/RFS_0194.jpg";
-import sport20 from "../assets/sports/RFS_0195.jpg";
-import sport21 from "../assets/sports/RFS_0266.jpg";
-import sport22 from "../assets/sports/RFS_0268.jpg";
-import sport23 from "../assets/sports/RFS_0269.jpg";
-import sport24 from "../assets/sports/RFS_0280.jpg";
+// Import parade images
+import parade1 from "../assest/Parade/DSC07579.jpg";
+import parade2 from "../assest/Parade/DSC07580.jpg";
+import parade3 from "../assest/Parade/DSC07581.jpg";
+import parade4 from "../assest/Parade/DSC07582.jpg";
+import parade5 from "../assest/Parade/DSC07791.jpg";
+import parade6 from "../assest/Parade/IMG_0036.jpg";
+import parade7 from "../assest/Parade/IMG_0116.jpg";
 
-import annual1 from "../assets/photo shoot/20250315_102549.jpg";
-import annual2 from "../assets/photo shoot/20250315_102647.jpg";
-import annual3 from "../assets/photo shoot/20250315_103743.jpg";
-import annual4 from "../assets/photo shoot/DSC04173.jpg";
-import annual5 from "../assets/photo shoot/DSC04495.jpg";
-import annual6 from "../assets/photo shoot/DSC04504.jpg";
-import annual7 from "../assets/photo shoot/DSC_4320.jpg";
-import annual8 from "../assets/photo shoot/DSC_4530.jpg";
-import annual9 from "../assets/photo shoot/DSC_4532.jpg";
-import annual10 from "../assets/photo shoot/DSC_4534.jpg";
-import annual11 from "../assets/photo shoot/DSC_4536.jpg";
-import annual12 from "../assets/photo shoot/DSC_4538.jpg";
-import annual13 from "../assets/photo shoot/DSC_4546.jpg";
-import annual14 from "../assets/photo shoot/DSC_4549.jpg";
-import annual15 from "../assets/photo shoot/DSC_4552.jpg";
-import annual16 from "../assets/photo shoot/DSC_4570.jpg";
-import annual17 from "../assets/photo shoot/Mrs.Dhanalakshmi.jpg";
-import annual18 from "../assets/photo shoot/Mrs.Muthulakshmi.jpg";
-import annual19 from "../assets/photo shoot/RFS_0001.jpg";
-import annual20 from "../assets/photo shoot/RFS_0006.jpg";
-import annual21 from "../assets/photo shoot/RFS_0007.jpg";
-import annual22 from "../assets/photo shoot/DSC_4551.jpg";
-
-import backgroundImage from "../assets/bg/blogbg.jpg";
+// Import dance images
+import dance1 from "../assest/Dance/DSC04173.jpg";
+import dance2 from "../assest/Dance/DSC04229.jpg";
+import dance3 from "../assest/Dance/DSC04272.jpg";
+import dance4 from "../assest/Dance/DSC04273.jpg";
+import dance5 from "../assest/Dance/DSC04287.jpg";
+import dance6 from "../assest/Dance/DSC04313.jpg";
+import dance7 from "../assest/Dance/DSC04393.jpg";
+import dance8 from "../assest/Dance/DSC04393.jpg";
 
 const Gallery = () => {
   const galleryCategories = useMemo(
     () => [
       {
-        name: "School Events",
-        images: [
-          Events1,
-          Events2,
-          Events3,
-          Events4,
-          Events5,
-          Events6,
-          Events7,
-          Events8,
-          Events9,
-          Events10,
-          Events11,
-          Events12,
-          Events13,
-          Events14,
-          Events15,
-        ],
+        name: "Talented kids",
         direction: "right",
+        images: [
+          { thumb: sports1, full: sports1 },
+          { thumb: sports2, full: sports2 },
+          { thumb: sports3, full: sports3 },
+          { thumb: sports4, full: sports4 },
+          { thumb: sports5, full: sports5 },
+          { thumb: sports6, full: sports6 },
+          { thumb: sports7, full: sports7 },
+          { thumb: sports8, full: sports8 },
+        ],
       },
       {
-        name: "Sports Day",
-        images: [
-          sport1,
-          sport2,
-          sport3,
-          sport4,
-          sport5,
-          sport6,
-          sport7,
-          sport8,
-          sport9,
-          sport10,
-          sport11,
-          sport12,
-          sport13,
-          sport14,
-          sport15,
-          sport16,
-          sport17,
-          sport18,
-          sport19,
-          sport20,
-          sport21,
-          sport22,
-          sport23,
-          sport24,
-        ],
+        name: "Events memories",
         direction: "left",
+        images: [
+          { thumb: parade1, full: parade1 },
+          { thumb: parade2, full: parade2 },
+          { thumb: parade3, full: parade3 },
+          { thumb: parade4, full: parade4 },
+          { thumb: parade5, full: parade5 },
+          { thumb: parade6, full: parade6 },
+          { thumb: parade7, full: parade7 },
+        ],
       },
       {
-        name: "Annual Day",
-        images: [
-          annual1,
-          annual2,
-          annual3,
-          annual4,
-          annual5,
-          annual6,
-          annual7,
-          annual8,
-          annual9,
-          annual10,
-          annual11,
-          annual12,
-          annual13,
-          annual14,
-          annual15,
-          annual16,
-          annual17,
-          annual18,
-          annual19,
-          annual20,
-          annual21,
-          annual22,
-        ],
+        name: "Memorable chief guests",
         direction: "right",
+        images: [
+          { thumb: dance1, full: dance1 },
+          { thumb: dance2, full: dance2 },
+          { thumb: dance3, full: dance3 },
+          { thumb: dance4, full: dance4 },
+          { thumb: dance5, full: dance5 },
+          { thumb: dance6, full: dance6 },
+          { thumb: dance7, full: dance7 },
+          { thumb: dance8, full: dance8 },
+        ],
       },
     ],
     []
@@ -164,83 +90,97 @@ const Gallery = () => {
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentCategory, setCurrentCategory] = useState(0);
   const carouselRefs = useRef([]);
   const animationIntervals = useRef([]);
+  const currentCategoryImages = useRef([]);
 
-  const openImage = useCallback((img, index, catIndex) => {
-    setSelectedImage(img);
-    setCurrentIndex(index);
-    setCurrentCategory(catIndex);
-  }, []);
+  const openImage = useCallback(
+    (imgObj, index, catIndex) => {
+      setSelectedImage(imgObj.full);
+      setCurrentIndex(index);
+      currentCategoryImages.current = galleryCategories[catIndex].images;
+    },
+    [galleryCategories]
+  );
 
   const navigate = useCallback(
     (direction) => {
-      const categoryImages = galleryCategories[currentCategory].images;
+      const images = currentCategoryImages.current;
       let newIndex = currentIndex + direction;
-      if (newIndex >= categoryImages.length) newIndex = 0;
-      else if (newIndex < 0) newIndex = categoryImages.length - 1;
+
+      if (newIndex >= images.length) newIndex = 0;
+      else if (newIndex < 0) newIndex = images.length - 1;
 
       setCurrentIndex(newIndex);
-      setSelectedImage(categoryImages[newIndex]);
+      setSelectedImage(images[newIndex].full);
     },
-    [currentCategory, currentIndex, galleryCategories]
+    [currentIndex]
   );
 
   const scrollCarousel = useCallback((direction, catIndex) => {
-    const carousel = carouselRefs.current[catIndex];
-    if (carousel) {
-      const scrollAmount = direction === "left" ? -300 : 300;
-      carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
+    requestAnimationFrame(() => {
+      const carousel = carouselRefs.current[catIndex];
+      if (carousel) {
+        const scrollAmount = direction === "left" ? -300 : 300;
+        carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    });
   }, []);
 
-useEffect(() => {
-  const setupCarouselAnimations = () => {
-    galleryCategories.forEach((category, catIndex) => {
-      const intervalId = setInterval(() => {
-        const carousel = carouselRefs.current[catIndex];
-        if (carousel) {
-          const direction = category.direction;
-          const scrollAmount = direction === "left" ? -300 : 300;
-          const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+  useEffect(() => {
+    const setupCarouselAnimations = () => {
+      const intervals = [];
 
-          if (direction === "left" && carousel.scrollLeft <= 0) {
-            carousel.scrollTo({ left: maxScroll, behavior: "instant" });
-          } else if (
-            direction === "right" &&
-            carousel.scrollLeft >= maxScroll - 10
-          ) {
-            carousel.scrollTo({ left: 0, behavior: "instant" });
-          } else {
-            carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
-          }
-        }
-      }, 3000);
+      galleryCategories.forEach((category, catIndex) => {
+        const intervalId = setInterval(() => {
+          requestAnimationFrame(() => {
+            const carousel = carouselRefs.current[catIndex];
+            if (carousel) {
+              const direction = category.direction;
+              const scrollAmount = direction === "left" ? -300 : 300;
+              const maxScroll = carousel.scrollWidth - carousel.clientWidth;
 
-      animationIntervals.current[catIndex] = intervalId;
-    });
-  };
+              if (direction === "left" && carousel.scrollLeft <= 0) {
+                carousel.scrollTo({ left: maxScroll, behavior: "instant" });
+              } else if (
+                direction === "right" &&
+                carousel.scrollLeft >= maxScroll - 10
+              ) {
+                carousel.scrollTo({ left: 0, behavior: "instant" });
+              } else {
+                carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+              }
+            }
+          });
+        }, 3000);
 
-  setupCarouselAnimations();
+        intervals[catIndex] = intervalId;
+        animationIntervals.current[catIndex] = intervalId;
+      });
 
-  // ✅ Use a local copy of the ref's current value for cleanup
-  const intervalsToClear = [...animationIntervals.current];
+      return intervals;
+    };
 
-  return () => {
-    intervalsToClear.forEach((interval) => {
-      if (interval) clearInterval(interval);
-    });
-  };
-}, [galleryCategories]);
+    const intervals = setupCarouselAnimations();
 
+    return () => {
+      intervals.forEach((interval) => {
+        if (interval) clearInterval(interval);
+      });
+    };
+  }, [galleryCategories]);
 
   return (
     <div className="min-h-screen">
       {/* Hero Background Section */}
       <div
         className="text-white py-28 bg-cover bg-center"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
       ></div>
 
       {/* Gallery Section */}
@@ -276,7 +216,7 @@ useEffect(() => {
                 key={catIndex}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "100px" }}
                 transition={{ duration: 0.5, delay: catIndex * 0.1 }}
                 className="relative"
               >
@@ -302,61 +242,63 @@ useEffect(() => {
                 <div className="relative group">
                   <div
                     ref={(el) => (carouselRefs.current[catIndex] = el)}
-                    className="flex overflow-x-auto pb-6 space-x-4 px-2"
+                    className="flex overflow-x-auto pb-6 space-x-4 px-2 scrollbar-hide"
                     style={{
                       scrollbarWidth: "none",
                       msOverflowStyle: "none",
+                      WebkitOverflowScrolling: "touch",
                     }}
                   >
-                    <style jsx>{`
-                      [class*="overflow-x-auto"]::-webkit-scrollbar {
-                        display: none;
-                      }
-                    `}</style>
-
                     {category.images.map((image, imgIndex) => (
                       <motion.div
                         key={imgIndex}
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, margin: "50px" }}
                         transition={{ duration: 0.5, delay: imgIndex * 0.1 }}
                         whileHover={{ scale: 1.02 }}
                         className="flex-shrink-0 relative overflow-hidden rounded-xl shadow-lg cursor-pointer w-72 h-64"
+                        style={{ willChange: "transform" }}
                         onClick={() => openImage(image, imgIndex, catIndex)}
                       >
                         <img
-                          src={image}
+                          src={image.thumb}
                           alt={`${category.name} ${imgIndex + 1}`}
                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                           loading="lazy"
+                          width={500}
+                          height={400}
+                          decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                          <p className="text-white font-medium">View Photo</p>
+                          <p className="text-white font-medium">...</p>
                         </div>
                       </motion.div>
                     ))}
                   </div>
 
+                  {/* Left Scroll Button */}
                   <button
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-amber-600 p-2 rounded-full shadow-lg z-10 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    className="absolute -left-14 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-lg z-10 transition-all duration-300"
                     onClick={(e) => {
                       e.stopPropagation();
                       scrollCarousel("left", catIndex);
                     }}
                     aria-label={`Scroll ${category.name} left`}
                   >
-                    <FiChevronLeft className="w-5 h-5" />
+                    <FiChevronLeft className="w-6 h-6" />
                   </button>
+
+                  {/* Right Scroll Button */}
                   <button
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-amber-600 p-2 rounded-full shadow-lg z-10 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    className="absolute -right-14 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-lg z-10 transition-all duration-300"
                     onClick={(e) => {
                       e.stopPropagation();
                       scrollCarousel("right", catIndex);
                     }}
                     aria-label={`Scroll ${category.name} right`}
                   >
-                    <FiChevronRight className="w-5 h-5" />
+                    <FiChevronRight className="w-6 h-6" />
                   </button>
                 </div>
               </motion.div>
@@ -390,6 +332,8 @@ useEffect(() => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
+                loading="eager"
+                decoding="sync"
               />
 
               <button

@@ -1,7 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
-import appointmentImg from "../../assets/school view/carousel-1.jpg";
+
+// Local image import
+import appointmentImg from "../../assest/school view/Page No.1.jpg";
 
 const Appointment = () => {
   const form = useRef();
@@ -55,6 +57,7 @@ const Appointment = () => {
             src={appointmentImg}
             alt="School View"
             className="w-full h-full object-cover"
+            loading="lazy"
           />
         </div>
 
@@ -114,12 +117,15 @@ const Appointment = () => {
               className="w-full border border-gray-300 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-600 resize-none"
             ></textarea>
 
-            <button
-              type="submit"
-              className="w-full sm:w-auto bg-cyan-700 text-white font-semibold px-6 py-3 rounded-md hover:bg-cyan-800 transition duration-300"
-            >
-              Submit
-            </button>
+            {/* 🎨 Fancy Hover Button */}
+            <div className="pt-2">
+              <button
+                type="submit"
+                className="relative h-12 w-40 overflow-hidden border border-black shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-yellow-400 before:transition-all before:duration-300 hover:text-white hover:shadow-black hover:before:-rotate-180 text-black font-bold"
+              >
+                <span className="relative z-10">Submit</span>
+              </button>
+            </div>
           </form>
         </div>
       </motion.div>

@@ -1,5 +1,8 @@
 import React from "react";
-import heroVideo from "../../assets/vdo/violet.mp4"; // Updated path
+
+// Local video and image imports
+import videoFile from "../../assest/vdo/violet.mp4";
+import posterImage from "../../assest/vdo/violet.mp4";
 
 const HeroSection = () => {
   return (
@@ -11,22 +14,25 @@ const HeroSection = () => {
           muted
           loop
           playsInline
+          preload="auto"
           className="w-full h-full object-cover"
+          poster={posterImage}
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src={videoFile} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
 
-      {/* 🔹 Optional dark overlay for better text contrast */}
+      {/* 🔹 Optional dark overlay */}
       <div className="absolute inset-0 bg-black/20 z-10" />
 
       {/* 🔹 Motto Label - Bottom Left */}
-      <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20">
+      <div className="absolute bottom-0 left-0 z-20">
         <div
-          className="text-white font-bold text-base sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-6 py-2 font-serif shadow-lg backdrop-blur-sm"
+          className="bg-cyan-500 text-black font-bold text-lg sm:text-xl md:text-2xl px-6 py-2 shadow-md font-serif"
           style={{
             clipPath: "polygon(0 0, 90% 0, 100% 100%, 0% 100%)",
+            width: "fit-content",
           }}
         >
           Arise and Shine
