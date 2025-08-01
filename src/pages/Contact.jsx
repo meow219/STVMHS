@@ -10,8 +10,8 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 
-// Optimized background image
-const backgroundImage = "https://ik.imagekit.io/zmcjodd1h/School%20website/bg/blogbg.jpg?updatedAt=1751313063280?tr=w-1600,q-80,f-webp";
+// Local background image
+import backgroundImage from "../assets/Bg/blogbg.jpg"; // Update this path to your local image
 
 const Contact = () => {
   return (
@@ -20,7 +20,7 @@ const Contact = () => {
       <div
         className="relative text-white py-20 sm:py-28 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), url(${backgroundImage})`
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundImage})`
         }}
       >
         <div className="absolute inset-0 bg-black/30"></div>
