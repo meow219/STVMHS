@@ -3,18 +3,29 @@ import { FaArrowUp } from "react-icons/fa";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.pageYOffset > 300);
     };
 
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkMobile();
+    toggleVisibility();
+
+    // Event listeners
     window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -26,16 +37,19 @@ const ScrollToTop = () => {
 
   return (
     <div
-      className="fixed right-6 z-50 transition-all duration-300"
-      style={{ bottom: "7rem" }}
+      className={`fixed z-50 transition-all duration-300 ${
+        isMobile ? "right-4 bottom-20" : "right-6 bottom-28"
+      }`}
     >
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="bg-cyan-600 hover:bg-cyan-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-50"
+          className={`bg-cyan-600 hover:bg-cyan-700 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-50 ${
+            isMobile ? "p-3" : "p-4"
+          }`}
           aria-label="Scroll to top"
         >
-          <FaArrowUp className="h-6 w-6" />
+          <FaArrowUp className={isMobile ? "h-5 w-5" : "h-6 w-6"} />
         </button>
       )}
     </div>

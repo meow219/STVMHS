@@ -1,50 +1,44 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-  useMemo,
-} from "react";
+import React, { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 // Import local images
-import backgroundImage from "../assest/Bg/blogbg.jpg";
+import backgroundImage from "../assets/Bg/blogbg.jpg";
 
 // Import sports images
-import sports1 from "../assest/sports/DSC07579.jpg";
-import sports2 from "../assest/sports/DSC07580.jpg";
-import sports3 from "../assest/sports/DSC07581.jpg";
-import sports4 from "../assest/sports/DSC07582.jpg";
-import sports5 from "../assest/sports/DSC07791.jpg";
-import sports6 from "../assest/sports/DSC07802.jpg";
-import sports7 from "../assest/sports/DSC07807.jpg";
-import sports8 from "../assest/sports/DSC07821.jpg";
+import sports1 from "../assets/sports/DSC07791.jpg";
+import sports2 from "../assets/sports/DSC07802.jpg";
+import sports3 from "../assets/sports/DSC07807.jpg";
+import sports4 from "../assets/sports/DSC07821.jpg";
+import sports5 from "../assets/sports/DSC07857.jpg";
+import sports6 from "../assets/sports/DSC07905.jpg";
+import sports7 from "../assets/sports/DSC07968.jpg";
+import sports8 from "../assets/sports/DSC08262.jpg";
 
 // Import parade images
-import parade1 from "../assest/Parade/DSC07579.jpg";
-import parade2 from "../assest/Parade/DSC07580.jpg";
-import parade3 from "../assest/Parade/DSC07581.jpg";
-import parade4 from "../assest/Parade/DSC07582.jpg";
-import parade5 from "../assest/Parade/DSC07791.jpg";
-import parade6 from "../assest/Parade/IMG_0036.jpg";
-import parade7 from "../assest/Parade/IMG_0116.jpg";
+import parade1 from "../assets/sports/Parade/DSC07579.jpg";
+import parade2 from "../assets/sports/Parade/DSC07580.jpg";
+import parade3 from "../assets/sports/Parade/DSC07581.jpg";
+import parade4 from "../assets/sports/Parade/DSC07582.jpg";
+import parade5 from "../assets/sports/Parade/DSC07791.jpg";
+import parade6 from "../assets/sports/Parade/IMG_0036.jpg";
+import parade7 from "../assets/sports/Parade/IMG_0116.jpg";
 
 // Import dance images
-import dance1 from "../assest/Dance/DSC04173.jpg";
-import dance2 from "../assest/Dance/DSC04229.jpg";
-import dance3 from "../assest/Dance/DSC04272.jpg";
-import dance4 from "../assest/Dance/DSC04273.jpg";
-import dance5 from "../assest/Dance/DSC04287.jpg";
-import dance6 from "../assest/Dance/DSC04313.jpg";
-import dance7 from "../assest/Dance/DSC04393.jpg";
-import dance8 from "../assest/Dance/DSC04393.jpg";
+import dance1 from "../assets/Dance/annual/DSC04229.jpg";
+import dance2 from "../assets/Dance/annual/DSC_4320.jpg";
+import dance3 from "../assets/Dance/annual/DSC_4654.jpg";
+import dance4 from "../assets/Dance/annual/DSC_4680.jpg";
+import dance5 from "../assets/Dance/annual/DSC_4753.jpg";
+import dance6 from "../assets/Dance/annual/DSC_4755.jpg";
+import dance7 from "../assets/Dance/annual/DSC_4783.jpg";
+import dance8 from "../assets/Dance/annual/DSC_4801.jpg";
 
 const Gallery = () => {
   const galleryCategories = useMemo(
     () => [
       {
-        name: "Talented kids",
+        name: "Talented Kids",
         direction: "right",
         images: [
           { thumb: sports1, full: sports1 },
@@ -58,7 +52,7 @@ const Gallery = () => {
         ],
       },
       {
-        name: "Events memories",
+        name: "Events Memories",
         direction: "left",
         images: [
           { thumb: parade1, full: parade1 },
@@ -71,7 +65,7 @@ const Gallery = () => {
         ],
       },
       {
-        name: "Memorable chief guests",
+        name: "Memorable Chief Guests",
         direction: "right",
         images: [
           { thumb: dance1, full: dance1 },
@@ -171,45 +165,43 @@ const Gallery = () => {
   }, [galleryCategories]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Background Section */}
       <div
-        className="text-white py-28 bg-cover bg-center"
+        className="relative text-white py-20 sm:py-28 bg-cover bg-center"
         style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundPosition: "center center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundImage})`,
         }}
-      ></div>
+      >
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+          >
+            Our <span className="text-amber-400">Gallery</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto font-serif"
+          >
+            Capturing the vibrant moments of school life through our lens
+          </motion.p>
+        </div>
+      </div>
 
       {/* Gallery Section */}
-      <div className="py-12 px-4 sm:px-6 lg:px-8">
+      <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="max-w-7xl mx-auto"
         >
-          <div className="text-center mb-12">
-            <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-3xl md:text-4xl font-bold text-gray-800 mb-3"
-            >
-              Our <span className="text-amber-600">Gallery</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-base text-gray-600 max-w-2xl mx-auto"
-            >
-              Capturing the vibrant moments of school life through our lens
-            </motion.p>
-          </div>
-
           <div className="space-y-16">
             {galleryCategories.map((category, catIndex) => (
               <motion.div
@@ -229,7 +221,7 @@ const Gallery = () => {
                     transition={{ duration: 0.8 }}
                   />
                   <motion.h2
-                    className="text-xl md:text-2xl font-semibold text-gray-800"
+                    className="text-xl sm:text-2xl font-semibold text-gray-800"
                     initial={{ x: -20 }}
                     whileInView={{ x: 0 }}
                     viewport={{ once: true }}
@@ -257,7 +249,7 @@ const Gallery = () => {
                         viewport={{ once: true, margin: "50px" }}
                         transition={{ duration: 0.5, delay: imgIndex * 0.1 }}
                         whileHover={{ scale: 1.02 }}
-                        className="flex-shrink-0 relative overflow-hidden rounded-xl shadow-lg cursor-pointer w-72 h-64"
+                        className="flex-shrink-0 relative overflow-hidden rounded-xl shadow-lg cursor-pointer w-64 h-56 sm:w-72 sm:h-64"
                         style={{ willChange: "transform" }}
                         onClick={() => openImage(image, imgIndex, catIndex)}
                       >
@@ -271,34 +263,33 @@ const Gallery = () => {
                           decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                          <p className="text-white font-medium">...</p>
+                          <p className="text-white font-medium">View</p>
                         </div>
                       </motion.div>
                     ))}
                   </div>
 
-                  {/* Left Scroll Button */}
+                  {/* Navigation Buttons */}
                   <button
-                    className="absolute -left-14 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-lg z-10 transition-all duration-300"
+                    className="absolute -left-4 sm:-left-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-lg z-10 transition-all duration-300 hidden sm:block"
                     onClick={(e) => {
                       e.stopPropagation();
                       scrollCarousel("left", catIndex);
                     }}
                     aria-label={`Scroll ${category.name} left`}
                   >
-                    <FiChevronLeft className="w-6 h-6" />
+                    <FiChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                   </button>
 
-                  {/* Right Scroll Button */}
                   <button
-                    className="absolute -right-14 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-lg z-10 transition-all duration-300"
+                    className="absolute -right-4 sm:-right-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-lg z-10 transition-all duration-300 hidden sm:block"
                     onClick={(e) => {
                       e.stopPropagation();
                       scrollCarousel("right", catIndex);
                     }}
                     aria-label={`Scroll ${category.name} right`}
                   >
-                    <FiChevronRight className="w-6 h-6" />
+                    <FiChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                   </button>
                 </div>
               </motion.div>
@@ -307,6 +298,7 @@ const Gallery = () => {
         </motion.div>
       </div>
 
+      {/* Image Modal */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
@@ -345,25 +337,25 @@ const Gallery = () => {
               </button>
 
               <button
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-1 rounded-full backdrop-blur-sm transition-all"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-1 sm:p-2 rounded-full backdrop-blur-sm transition-all"
                 onClick={(e) => {
                   e.stopPropagation();
                   navigate(-1);
                 }}
                 aria-label="Previous image"
               >
-                <FiChevronLeft className="w-6 h-6" />
+                <FiChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
 
               <button
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-1 rounded-full backdrop-blur-sm transition-all"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-1 sm:p-2 rounded-full backdrop-blur-sm transition-all"
                 onClick={(e) => {
                   e.stopPropagation();
                   navigate(1);
                 }}
                 aria-label="Next image"
               >
-                <FiChevronRight className="w-6 h-6" />
+                <FiChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </motion.div>
           </motion.div>

@@ -6,39 +6,47 @@ const FacilityCard = ({ facility, index }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
+    rootMargin: "-50px 0px",
   });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`facility-card group relative overflow-hidden rounded-3xl p-6 ${facility.bgColor} border ${facility.borderColor} transition-all duration-300 hover:shadow-xl ${facility.hoverBg} ${facility.hoverShadow} aspect-square`}
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ 
+        duration: 0.6, 
+        ease: "easeOut",
+        delay: index * 0.1
+      }}
+      className={`group relative overflow-hidden rounded-3xl p-6 ${facility.bgColor} border ${facility.borderColor} transition-all duration-300 hover:shadow-xl ${facility.hoverBg} ${facility.hoverShadow} aspect-square`}
     >
       <div className="h-full flex flex-col justify-between">
         <div className="facility-icon-wrapper">
-          <div
-            className={`w-20 h-20 mx-auto rounded-full ${facility.bgColor} border-2 ${facility.borderColor} flex items-center justify-center text-4xl transition-all duration-300 group-hover:bg-white group-hover:scale-110`}
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className={`w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full ${facility.bgColor} border-2 ${facility.borderColor} flex items-center justify-center text-3xl sm:text-4xl transition-all duration-300 group-hover:bg-white`}
           >
             {facility.icon}
-          </div>
+          </motion.div>
         </div>
 
         <div className="text-center">
           <h3
-            className={`text-xl font-bold mb-2 transition-colors duration-300 ${facility.textColor} ${facility.hoverText}`}
+            className={`text-lg sm:text-xl font-bold mb-2 transition-colors duration-300 ${facility.textColor} ${facility.hoverText}`}
           >
             {facility.title}
           </h3>
-          <p className="text-gray-700 text-sm">{facility.description}</p>
+          <p className="text-gray-700 text-xs sm:text-sm">
+            {facility.description}
+          </p>
         </div>
 
         <div
-          className={`absolute top-0 left-0 w-4 h-8 rounded-full ${facility.bgColor} opacity-70`}
+          className={`absolute top-0 left-0 w-3 h-6 sm:w-4 sm:h-8 rounded-full ${facility.bgColor} opacity-70`}
         ></div>
         <div
-          className={`absolute top-0 right-0 w-4 h-8 rounded-full ${facility.bgColor} opacity-70`}
+          className={`absolute top-0 right-0 w-3 h-6 sm:w-4 sm:h-8 rounded-full ${facility.bgColor} opacity-70`}
         ></div>
       </div>
     </motion.div>
@@ -50,7 +58,7 @@ const Facilities = () => {
     {
       title: "School Bus",
       description:
-        "We provide a safe and reliable school bus service, ensuring that students have a comfortable and secure journey to and from school each day.",
+        "Safe and reliable transportation service for comfortable daily commutes.",
       icon: "🚌",
       bgColor: "bg-blue-100",
       textColor: "text-blue-600",
@@ -62,7 +70,7 @@ const Facilities = () => {
     {
       title: "Playground",
       description:
-        "Whether playing structured games or simply enjoying free play, our students find joy and a chance to release their energy here",
+        "Spacious area for structured games and free play to release energy.",
       icon: "⚽",
       bgColor: "bg-green-100",
       textColor: "text-green-600",
@@ -74,7 +82,7 @@ const Facilities = () => {
     {
       title: "Healthy Canteen",
       description:
-        "We offer nutritious and balanced meals that promote healthy eating habits from an early age",
+        "Nutritious meals promoting healthy eating habits from early age.",
       icon: "🍎",
       bgColor: "bg-yellow-100",
       textColor: "text-yellow-600",
@@ -86,7 +94,7 @@ const Facilities = () => {
     {
       title: "Positive Learning",
       description:
-        "Our walls are filled with interactive boards, colorful educational posters, and student work to foster creativity and a love for learning",
+        "Interactive environment fostering creativity and love for learning.",
       icon: "📚",
       bgColor: "bg-cyan-100",
       textColor: "text-cyan-600",
@@ -98,7 +106,7 @@ const Facilities = () => {
     {
       title: "Smart Classrooms",
       description:
-        "Equipped with digital boards and interactive content, enhancing engagement and understanding through tech-driven learning.",
+        "Digital boards and interactive content for tech-driven learning.",
       icon: "💻",
       bgColor: "bg-indigo-100",
       textColor: "text-indigo-600",
@@ -110,7 +118,7 @@ const Facilities = () => {
     {
       title: "Art & Craft",
       description:
-        "We nurture creativity with dedicated art and craft sessions, helping students express themselves artistically.",
+        "Dedicated sessions for artistic expression and creativity.",
       icon: "🎨",
       bgColor: "bg-pink-100",
       textColor: "text-pink-600",
@@ -122,7 +130,7 @@ const Facilities = () => {
     {
       title: "Library",
       description:
-        "Our library offers a wide selection of books, encouraging students to cultivate a reading habit from an early age.",
+        "Wide book selection cultivating reading habits from early age.",
       icon: "📖",
       bgColor: "bg-orange-100",
       textColor: "text-orange-600",
@@ -134,7 +142,7 @@ const Facilities = () => {
     {
       title: "Music & Dance",
       description:
-        "Events like KG Day allow students to explore and develop their talents in performing arts, providing a platform for creativity and expression.",
+        "Platforms for students to explore talents in performing arts.",
       icon: "🎵",
       bgColor: "bg-purple-100",
       textColor: "text-purple-600",
@@ -146,24 +154,34 @@ const Facilities = () => {
   ];
 
   return (
-    <div className="py-16">
-      <div className="mx-auto max-w-7xl px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            Little Explorers’ World
-          </h2>
-          <p className="text-lg text-gray-600">
+    <section className="py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 lg:mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 sm:mb-4"
+          >
+            Little Explorers' World
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-base sm:text-lg text-gray-600"
+          >
             Every corner crafted for creativity and care.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {facilities.map((facility, index) => (
             <FacilityCard key={index} facility={facility} index={index} />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

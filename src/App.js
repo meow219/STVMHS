@@ -20,7 +20,7 @@ import VioletBlock from "./pages/VioletBlock";
 import Contact from "./pages/Contact";
 
 // Local image import
-import ShashaImg from "./assest/Chatbot/shasha logo tilt.PNG";
+import ShashaImg from "./assets/Chatbot/shasha logo tilt.PNG";
 
 // ScrollToTop on Route Change
 const ScrollToTopOnRouteChange = () => {
@@ -63,7 +63,7 @@ function App() {
   return (
     <Router>
       <ScrollToTopOnRouteChange />
-      <div className="flex flex-col min-h-screen bg-[#ebebd3]">
+      <div className="flex flex-col min-h-screen bg-[#ebebd3] overflow-x-hidden">
         <Navbar />
 
         <main className="flex-grow">
@@ -80,13 +80,16 @@ function App() {
         <ScrollToTop />
 
         {/* Admission Modal */}
-        <AdmissionModal isVisible={showAdmissionModal} onClose={handleCloseAdmissionModal} />
+        <AdmissionModal 
+          isVisible={showAdmissionModal} 
+          onClose={handleCloseAdmissionModal} 
+        />
 
         {/* Chatbot Trigger */}
         {!showAdmissionModal && (
-          <div className="fixed bottom-6 right-6 z-50 flex items-end gap-2">
+          <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex items-end gap-2">
             {(showPopup || (hovered && !isChatbotOpen)) && (
-              <div className="bg-white text-sm rounded-xl shadow-lg p-3 animate-fade-in border max-w-xs">
+              <div className="bg-white text-xs sm:text-sm rounded-lg sm:rounded-xl shadow-lg p-2 sm:p-3 animate-fade-in border max-w-[180px] sm:max-w-xs">
                 <p>
                   <span className="font-semibold">Hi! 👋</span> <br />
                   I'm Shasha, <br /> Our School assistant
@@ -100,7 +103,7 @@ function App() {
                 setIsChatbotOpen(!isChatbotOpen);
                 setShowPopup(false);
               }}
-              className="rounded-full w-14 h-14 bg-white shadow-lg hover:scale-105 transition-transform overflow-hidden"
+              className="rounded-full w-12 h-12 sm:w-14 sm:h-14 bg-white shadow-lg hover:scale-105 transition-transform overflow-hidden"
               aria-label="Open School Assistant"
             >
               <img
@@ -110,7 +113,7 @@ function App() {
                 loading="lazy"
                 onError={(e) => {
                   e.target.style.display = "none";
-                  e.target.parentElement.classList.add("bg-blue-500"); // Fallback background
+                  e.target.parentElement.classList.add("bg-blue-500");
                 }}
               />
             </button>
@@ -118,7 +121,10 @@ function App() {
         )}
 
         {/* ChatBox Component */}
-        <ChatBox isActive={isChatbotOpen} toggle={() => setIsChatbotOpen(false)} />
+        <ChatBox 
+          isActive={isChatbotOpen} 
+          toggle={() => setIsChatbotOpen(false)} 
+        />
       </div>
     </Router>
   );

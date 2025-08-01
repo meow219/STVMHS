@@ -132,67 +132,69 @@ const ChatBox = ({ isActive, toggle }) => {
 
   if (!browserSupportsSpeechRecognition) {
     return (
-      <div className="fixed bottom-24 right-6 w-96 bg-white rounded-xl shadow-2xl z-50 p-4 text-red-500">
+      <div className="fixed bottom-24 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-96 bg-white rounded-xl shadow-2xl z-50 p-4 text-red-500 text-sm sm:text-base">
         Browser doesn't support speech recognition
       </div>
     );
   }
 
   return (
-    <div className="fixed bottom-24 right-6 w-96 bg-white rounded-xl shadow-2xl z-50 border border-gray-200 overflow-hidden">
+    <div className="fixed bottom-24 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-96 bg-white rounded-xl shadow-2xl z-50 border border-gray-200 overflow-hidden transition-all duration-300">
       {/* Header */}
-      <div className="bg-cyan-500 text-white p-4 rounded-t-xl flex justify-between items-center">
-        <div className="flex items-center space-x-3">
-          <div className="relative w-10 h-10">
+      <div className="bg-cyan-500 text-white p-3 sm:p-4 rounded-t-xl flex justify-between items-center">
+        <div className="flex items-center space-x-2 sm:space-x-3">
+          <div className="relative w-8 h-8 sm:w-10 sm:h-10">
             <img
               src={shashaImageURL}
               alt="Shasha"
-              className="w-10 h-10 rounded-full border-2 border-white shadow"
+              className="w-full h-full rounded-full border-2 border-white shadow"
+              loading="lazy"
             />
-            <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+            <span className="absolute bottom-0 right-0 w-2 h-2 sm:w-3 sm:h-3 bg-green-500 border-2 border-white rounded-full"></span>
           </div>
           <div>
-            <h3 className="font-bold text-lg">Shasha</h3>
+            <h3 className="font-bold text-base sm:text-lg">Shasha</h3>
             <p className="text-xs opacity-80">School Assistant</p>
           </div>
         </div>
         <button
           onClick={toggle}
-          className="hover:text-gray-200 transition-colors p-1 rounded-full hover:bg-cyan-700"
+          className="hover:text-gray-200 transition-colors p-1 rounded-full hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-white"
+          aria-label="Close chat"
         >
-          <FontAwesomeIcon icon={faXmark} className="text-lg" />
+          <FontAwesomeIcon icon={faXmark} className="text-base sm:text-lg" />
         </button>
       </div>
 
       {/* Messages */}
       <div
-        className="relative h-80 overflow-y-auto"
+        className="relative h-64 sm:h-80 overflow-y-auto"
         style={{
           backgroundImage: `url('${bgImageURL}')`,
-          backgroundSize: "cover", // Fill both width and height
-          backgroundRepeat: "repeat-y", // Repeat vertically
-          backgroundPosition: "center center", // Center horizontally and vertically
+          backgroundSize: "cover",
+          backgroundRepeat: "repeat-y",
+          backgroundPosition: "center center",
           filter: "brightness(0.9)",
         }}
       >
-        <div className="relative z-10 p-4">
+        <div className="relative z-10 p-3 sm:p-4">
           {messages.map((msg, i) => (
             <div
               key={i}
-              className={`mb-4 flex ${
+              className={`mb-3 sm:mb-4 flex ${
                 msg.sender === "user" ? "justify-end" : "justify-start"
               }`}
             >
               <div
-                className={`max-w-xs lg:max-w-md rounded-2xl px-4 py-2 relative ${
+                className={`max-w-[80%] sm:max-w-xs lg:max-w-md rounded-2xl px-3 py-2 sm:px-4 sm:py-2 relative ${
                   msg.sender === "user"
                     ? "bg-cyan-600 text-white rounded-tr-none"
                     : "bg-white text-gray-800 border border-gray-200 rounded-tl-none shadow-sm"
                 }`}
               >
-                <div className="text-sm whitespace-pre-line">{msg.text}</div>
+                <div className="text-xs sm:text-sm whitespace-pre-line">{msg.text}</div>
                 <div
-                  className={`text-xs mt-1 text-right ${
+                  className={`text-xxs sm:text-xs mt-1 text-right ${
                     msg.sender === "user" ? "text-blue-100" : "text-gray-500"
                   }`}
                 >
@@ -202,12 +204,12 @@ const ChatBox = ({ isActive, toggle }) => {
             </div>
           ))}
           {isTyping && (
-            <div className="flex justify-start mb-4">
-              <div className="bg-white text-gray-800 border border-gray-200 rounded-2xl rounded-tl-none px-4 py-2 relative max-w-xs">
+            <div className="flex justify-start mb-3 sm:mb-4">
+              <div className="bg-white text-gray-800 border border-gray-200 rounded-2xl rounded-tl-none px-3 py-2 sm:px-4 sm:py-2 relative max-w-[80%] sm:max-w-xs">
                 <div className="flex space-x-1">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100"></div>
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-400 rounded-full animate-bounce delay-100"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-400 rounded-full animate-bounce delay-200"></div>
                 </div>
               </div>
             </div>
@@ -217,7 +219,7 @@ const ChatBox = ({ isActive, toggle }) => {
       </div>
 
       {/* Input */}
-      <div className="p-3 border-t border-gray-200 bg-white rounded-b-xl">
+      <div className="p-2 sm:p-3 border-t border-gray-200 bg-white rounded-b-xl">
         <div className="flex items-center">
           <input
             ref={inputRef}
@@ -225,7 +227,7 @@ const ChatBox = ({ isActive, toggle }) => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="flex-1 border border-gray-300 rounded-l-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-300 text-sm"
+            className="flex-1 border border-gray-300 rounded-l-lg p-2 sm:p-3 focus:outline-none focus:ring-2 focus:ring-cyan-300 text-xs sm:text-sm"
             placeholder="Ask about programs, fees, admission..."
             autoFocus
           />
@@ -235,20 +237,22 @@ const ChatBox = ({ isActive, toggle }) => {
                 ? SpeechRecognition.stopListening()
                 : SpeechRecognition.startListening()
             }
-            className={`p-3 border-y border-r border-gray-300 transition-colors ${
+            className={`p-2 sm:p-3 border-y border-r border-gray-300 transition-colors ${
               listening
                 ? "bg-red-100 text-red-600 animate-pulse"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
+            aria-label={listening ? "Stop listening" : "Start voice input"}
           >
-            <FontAwesomeIcon icon={faMicrophone} />
+            <FontAwesomeIcon icon={faMicrophone} className="text-sm sm:text-base" />
           </button>
           <button
             onClick={handleSend}
             disabled={!inputValue.trim()}
-            className="p-3 bg-cyan-600 text-white rounded-r-lg hover:bg-cyan-700 transition-colors disabled:opacity-50"
+            className="p-2 sm:p-3 bg-cyan-600 text-white rounded-r-lg hover:bg-cyan-700 transition-colors disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-cyan-300"
+            aria-label="Send message"
           >
-            <FontAwesomeIcon icon={faPaperPlane} />
+            <FontAwesomeIcon icon={faPaperPlane} className="text-sm sm:text-base" />
           </button>
         </div>
       </div>

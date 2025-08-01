@@ -1,5 +1,5 @@
 import React from "react";
-import ModalImage from "../assest/Modal/modal.png"; // ✅ Local image import
+import ModalImage from "../assets/Modal/modal.png";
 
 const AdmissionModal = ({ isVisible, onClose }) => {
   return (
@@ -13,15 +13,19 @@ const AdmissionModal = ({ isVisible, onClose }) => {
           isVisible ? "scale-100" : "scale-95"
         }`}
       >
-        {/* Modal Container */}
-        <div className="relative rounded-md shadow-2xl overflow-hidden w-full bg-white">
-          {/* Modal Image */}
-          <img
-            src={ModalImage}
-            alt="Admission Open Banner"
-            className="w-full h-auto object-cover"
-            loading="lazy"
-          />
+        {/* Modal Container - Removed bg-white */}
+        <div className="relative rounded-md shadow-2xl overflow-hidden w-full">
+          {/* Modal Image with aspect ratio preservation */}
+          <div className="relative" style={{ paddingBottom: '133.33%' }}>
+            <img
+              src={ModalImage}
+              alt="Admission Open Banner"
+              className="absolute top-0 left-0 w-full h-full object-cover"
+              loading="lazy"
+              width={600}
+              height={800}
+            />
+          </div>
 
           {/* Close Button */}
           <button
@@ -32,15 +36,15 @@ const AdmissionModal = ({ isVisible, onClose }) => {
             &times;
           </button>
 
-          {/* Register Button */}
-          <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 z-10 px-2 w-full flex justify-center">
+          {/* Register Button - Updated design from second code */}
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 w-full px-4 flex justify-center">
             <a
               href="https://forms.gle/YyJB5x3ssc4CSbkz8"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full max-w-[220px]"
+              className="w-full max-w-[240px]"
             >
-              <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-6 rounded shadow-md transition text-sm sm:text-base">
+              <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5 text-sm sm:text-base md:text-lg">
                 Register Now
               </button>
             </a>
